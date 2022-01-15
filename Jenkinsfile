@@ -10,7 +10,7 @@ pipeline {
         stage("Creacion de Docker") {
         steps {
 
-                dir( "${env.WORKSPACE}/'PRUEBA (NO OFICIAL)'"){
+                dir( "${env.WORKSPACE}"){
 
                     sh 'docker build --build-arg JAR_FILE=build/libs/evaluacion2-0.0.1-SNAPSHOT.jar -t myorg/myapp .'
                     sh 'docker run --name prueba2 -d -p 8092:8090 myorg/myapp'
