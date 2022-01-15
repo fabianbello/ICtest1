@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     stages {
-        stage("Inicio del Pipeline 3") {
+        stage("Inicio del Pipeline") {
             steps {
                 echo "Iniciando Pipeline: ${env.JOB_NAME}"
             }
