@@ -9,8 +9,6 @@ pipeline {
 
         stage("Creacion de Docker") {
         steps {
-            
-            dir
 
                 dir( "${env.WORKSPACE}/'PRUEBA (NO OFICIAL)'"){
 
@@ -19,9 +17,6 @@ pipeline {
 
                 }
  
-
-
-      
             }
         }
 
