@@ -1,5 +1,5 @@
 FROM openjdk:11
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
-RUN javac /src/main/java/cl/mingeso/evaluacion2/Evaluacion2Application.java
-CMD ["java", "Main"]
+VOLUME /tmp
+ARG JAR_FILE
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
