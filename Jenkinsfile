@@ -11,9 +11,6 @@ pipeline {
         steps {
 
                 dir( "${env.WORKSPACE}"){
-                    sh 'git update-index --chmod=+x gradlew'
-                    sh 'chmod +x gradlew'
-                    sh './gradlew build'
                     sh 'docker build --build-arg JAR_FILE=build/libs/evaluacion2-0.0.1-SNAPSHOT.jar -t prueba4 .'
                     sh 'docker run --name prueba4 -d -p 8093:8090 prueba4'
 
