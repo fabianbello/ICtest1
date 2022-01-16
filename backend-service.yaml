@@ -9,6 +9,6 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: 1818
-      targetPort: 1818
+      port: 8090
+      targetPort: 8090
       nodePort: 30000
