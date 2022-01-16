@@ -11,12 +11,27 @@ pipeline {
         steps {
 
                 dir( "${env.WORKSPACE}"){
-                    sh 'docker build --build-arg JAR_FILE=build/libs/evaluacion2-0.0.1-SNAPSHOT.jar -t prueba4 .'
-                    sh 'docker run --name prueba4 -d -p 8093:8090 prueba4'
+                    sh 'docker build --build-arg JAR_FILE=build/libs/evaluacion2-0.0.1-SNAPSHOT.jar -t pruebaIC .'
+                    sh 'docker run --name pruebaIC -d -p 8091:8090 pruebaIC'
 
                 }
  
             }
+        }
+
+        stage("Subida de imagen a dockerhub"){
+
+            steps {
+                dir( "${env.WORKSPACE}"){
+                    sh 'docker login'
+                    sh 'fabianbello'
+                    sh 'fingesoGrupo6'
+                    sh 'docker tag pruebaIC fabianbello/pruebaIC:v1.0'
+                    sh 'docker push fabianbello/pruebaIC:v1.0'
+                }
+ 
+            }
+
         }
 
 
