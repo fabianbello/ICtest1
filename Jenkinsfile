@@ -7,7 +7,7 @@ pipeline {
             }
         }
 
-        stage("Creacion de Docker") {
+        stage("Creacion de Docker1") {
         steps {
 
                 dir( "${env.WORKSPACE}"){
@@ -23,6 +23,7 @@ pipeline {
 
             steps {
                 dir( "${env.WORKSPACE}"){
+                    sh 'docker logout'
                     sh 'docker login'
                     sh 'fabianbello'
                     sh 'fingesoGrupo6'
