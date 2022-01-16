@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-        stage("Creacion de Docker1") {
+        stage("Creacion de Docke2") {
         steps {
 
                 dir( "${env.WORKSPACE}"){
