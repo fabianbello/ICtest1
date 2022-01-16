@@ -40,7 +40,7 @@ pipeline {
 
         stage ('Docker Login Test') {
             steps {
-                script {
+    
                     withCredentials([
                         usernamePassword(
                         credentialsId: 'mycredentials', 
@@ -53,7 +53,7 @@ pipeline {
                         sh "docker login -u $DOCKER_USER -p $DOCKER_PASSWORD" 
 
                     }
-                }
+                
             }
         }
 
