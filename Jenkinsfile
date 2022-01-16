@@ -44,13 +44,13 @@ pipeline {
                     withCredentials([
                         usernamePassword(
                         credentialsId: 'mycredentials', 
-                        usernameVariable: 'fabianbello', 
-                        passwordVariable: 'mingesoGrupo6')]) {
+                        usernameVariable: 'DOCKER_USER', 
+                        passwordVariable: 'DOCKER_PASSWORD')]) {
 
                         echo "docker login naked"
 
                         echo "docker login protected"
-                        sh "docker login -u fabianbello -p $DOCKER_PASSWORD" 
+                        sh "docker login -u $DOCKER_USER -p $DOCKER_PASSWORD" 
 
                     }
                 }
