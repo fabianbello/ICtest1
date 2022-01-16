@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-        stage("Creacion de Docke2") {
+        stage("Creacion de Docke4") {
         steps {
 
                 dir( "${env.WORKSPACE}"){
