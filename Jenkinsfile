@@ -1,6 +1,13 @@
 pipeline {
     agent any
 
+    environment {
+
+        DOCKER_USER = "fabianbello"
+        DOCKER_PASSWORD = "mingesoGrupo6"
+    
+    }
+
     stages {
         stage("Inicio del Pipeline") {
             steps {
@@ -37,11 +44,13 @@ pipeline {
                     withCredentials([
                         usernamePassword(
                         credentialsId: 'mycredentials', 
-                        usernameVariable: 'DOCKER_USER', 
-                        passwordVariable: 'DOCKER_PASSWORD')]) {
+                        usernameVariable: 'fabianbello', 
+                        passwordVariable: 'mingesoGrupo6')]) {
 
                         echo "docker login naked"
-                        sh "docker login -u fabianbello -p mingesoGrupo6"
+
+                        echo "docker login protected"
+                        sh "docker login -u fabianbello -p $DOCKER_PASSWORD" 
 
                     }
                 }
