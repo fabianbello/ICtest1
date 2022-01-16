@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metada:
+  name: backend-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: backend
+  ports:
+    - name: http
+      protocol: TCP
+      port: 1818
+      targetPort: 1818
+      nodePort: 30000
