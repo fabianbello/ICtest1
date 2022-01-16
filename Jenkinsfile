@@ -11,7 +11,6 @@ pipeline {
         steps {
 
                 dir( "${env.WORKSPACE}"){
-                    sh 'docker stop pruebafinal'
                     sh 'docker rm pruebafinal -f'
                     sh 'docker rmi pruebafinal -f'       
                     sh 'docker build --build-arg JAR_FILE=build/libs/evaluacion2-0.0.1-SNAPSHOT.jar -t pruebafinal .'
@@ -26,7 +25,6 @@ pipeline {
 
             steps {
                 dir( "${env.WORKSPACE}"){
-                    sh 'docker stop pruebafinal'
                     sh 'docker rm pruebafinal -f'
                     sh 'docker rmi pruebafinal -f'       
                     sh 'docker logout'
