@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
-metada:
+metadata:
   name: backend-deployment
   labels:
     app: backend
 spec:
-  repllicas: 1
+  replicas: 1
   selector:
     matchLabels:
       app: backend
@@ -14,7 +14,7 @@ spec:
       labels:
         app: backend
     spec:
-      container:
+      containers:
         - name: backend
           image: fabianbello/pruebafinal
           imagePullPolicy: Always
