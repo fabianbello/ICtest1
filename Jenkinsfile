@@ -1,5 +1,7 @@
 pipeline {
-    agent any 
+    agent any
+
+    re 
     stages {
         stage("Inicio del Pipeline") {
             steps {
@@ -21,16 +23,38 @@ pipeline {
             }
         }
 
+        stage("Deslogea usuario anterior"){
+            steps{
+                dir( "${env.WORKSPACE}"){   
+                    sh 'docker logout'
+                }
+
+            }
+        }
+
+        stage ('Docker Login Test') {
+            steps {
+                script {
+                    withCredentials([
+                        usernamePassword(
+                        credentialsId: 'mycredentials', 
+                        usernameVariable: 'DOCKER_USER', 
+                        passwordVariable: 'DOCKER_PASSWORD')]) {
+
+                        echo "docker login naked"
+                        sh "docker login -u fabianbello -p mingesoGrupo6"
+
+                    }
+                }
+            }
+        }
+
         stage("Subida de imagen a dockerhub"){
 
             steps {
                 dir( "${env.WORKSPACE}"){
                     sh 'docker rm pruebafinal -f'
                     sh 'docker rmi pruebafinal -f'       
-                    sh 'docker logout'
-                    sh 'docker login'
-                    sh 'fabianbello'
-                    sh 'fingesoGrupo6'
                     sh 'docker tag pruebafinal fabianbello/pruebafinal:v1.0'
                     sh 'docker push fabianbello/pruebafinal:v1.0'
                 }
