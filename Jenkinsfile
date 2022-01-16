@@ -41,18 +41,13 @@ pipeline {
         stage ('Docker Login Test') {
             steps {
     
-                    withCredentials([
-                        usernamePassword(
-                        credentialsId: 'mycredentials', 
-                        usernameVariable: 'DOCKER_USER', 
-                        passwordVariable: 'DOCKER_PASSWORD')]) {
+          
 
-                        echo "docker login naked"
+                    echo "docker login naked"
 
-                        echo "docker login protected"
-                        sh "docker login -u $DOCKER_USER -p $DOCKER_PASSWORD" 
-
-                    }
+                    echo "docker login protected"
+                    sh "docker login -u $DOCKER_USER -p $DOCKER_PASSWORD" 
+                    
                 
             }
         }
