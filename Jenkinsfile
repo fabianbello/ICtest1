@@ -1,7 +1,6 @@
 pipeline {
     agent any
 
-    re 
     stages {
         stage("Inicio del Pipeline") {
             steps {
