@@ -13,7 +13,7 @@ pipeline {
                 dir( "${env.WORKSPACE}"){
 
                     sh 'docker build --build-arg JAR_FILE=build/libs/evaluacion2-0.0.1-SNAPSHOT.jar -t pruebafinal .'
-                    sh 'docker run --name pruebafinal -d -p 8091:8090 pruebafinal'
+                    sh 'docker run --name pruebafinal2 -d -p 8091:8090 pruebafinal'
 
                 }
  
