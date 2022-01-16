@@ -11,8 +11,8 @@ pipeline {
         steps {
 
                 dir( "${env.WORKSPACE}"){
-                    sh 'docker build --build-arg JAR_FILE=build/libs/evaluacion2-0.0.1-SNAPSHOT.jar -t pruebaIC .'
-                    sh 'docker run --name pruebaIC -d -p 8091:8090 pruebaIC'
+                    sh 'docker build --build-arg JAR_FILE=build/libs/evaluacion2-0.0.1-SNAPSHOT.jar -t pruebafinal .'
+                    sh 'docker run --name pruebafinal -d -p 8091:8090 pruebafinal'
 
                 }
  
@@ -26,8 +26,8 @@ pipeline {
                     sh 'docker login'
                     sh 'fabianbello'
                     sh 'fingesoGrupo6'
-                    sh 'docker tag pruebaIC fabianbello/pruebaIC:v1.0'
-                    sh 'docker push fabianbello/pruebaIC:v1.0'
+                    sh 'docker tag pruebafinal fabianbello/pruebafinal:v1.0'
+                    sh 'docker push fabianbello/pruebafinal:v1.0'
                 }
  
             }
