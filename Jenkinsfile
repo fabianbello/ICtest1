@@ -41,10 +41,6 @@ pipeline {
         stage ('Docker Login Test') {
             steps {
     
-          
-
-                    echo "docker login naked"
-
                     echo "docker login protected"
                     sh "docker login -u $DOCKER_USER -p $DOCKER_PASSWORD" 
                     
@@ -56,8 +52,7 @@ pipeline {
 
             steps {
                 dir( "${env.WORKSPACE}"){
-                    sh 'docker rm pruebafinal -f'
-                    sh 'docker rmi pruebafinal -f'       
+
                     sh 'docker tag pruebafinal fabianbello/pruebafinal:v1.0'
                     sh 'docker push fabianbello/pruebafinal:v1.0'
                 }
